@@ -30,6 +30,12 @@ if true then
             position = "right",
           }
         })
+
+        local keys = require("lazyvim.plugins.lsp.keymaps").get()
+        -- add a new keymap for hover using '<leader>h'
+        keys[#keys + 1] = { "<leader>h", "<cmd>lua vim.lsp.buf.hover()<cr>" }
+        -- disable keymap
+        keys[#keys + 1] = { "K", false }
       end
     },
   }
